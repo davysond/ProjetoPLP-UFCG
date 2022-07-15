@@ -1,0 +1,1 @@
+Gerente {nomeGerente = "Gerente", senhaGerente = "123456", telefoneGerente = "123456789"}
