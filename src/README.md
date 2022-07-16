@@ -9,7 +9,7 @@
 
 # Recurso necessários para a utilização:
 
-- Instale <a href="[https://www.haskell.org/downloads/]">GHCC</a>, o instalador de pacotes de Haskell.
+- Instale o [GHCC](https://www.haskell.org/downloads/), o instalador de pacotes de Haskell.
 
 - Instale o Cabal (Gerenciador de projetos de haskell);
 
