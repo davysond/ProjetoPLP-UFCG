@@ -9,8 +9,8 @@
 
 # Recurso necessários para a utilização:
 
-- Instale o [GHCC](https://www.haskell.org/downloads/), o instalador de pacotes de Haskell;
+- Instale o [GHCC](https://www.haskell.org/downloads/), gerenciador de pacotes do Haskell;
 
-- Instale o [Cabal](https://cabal.readthedocs.io/en/3.6/) (Gerenciador de projetos de haskell);
+- Instale o [Cabal](https://cabal.readthedocs.io/en/3.6/), gerenciador de projetos da linguagem.
 
 - (Para checar as versões instaladas, utilize os comandos "ghci --version" e "cabal --version", respectivamente).
