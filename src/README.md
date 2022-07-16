@@ -13,4 +13,4 @@
 
 - Instale o [Cabal](https://cabal.readthedocs.io/en/3.6/) (Gerenciador de projetos de haskell);
 
-- (Para checar, utilize o comando cabal --version)
+- (Para checar as versões instaladas, utilize os comandos "ghci --version" e "cabal --version", respectivamente).
