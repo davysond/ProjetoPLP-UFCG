@@ -9,10 +9,8 @@
 
 # Recurso necessários para a utilização:
 
-- Instale o [GHCC](https://www.haskell.org/downloads/), o instalador de pacotes de Haskell.
+- Instale o [GHCC](https://www.haskell.org/downloads/), o instalador de pacotes de Haskell;
 
-- Instale o Cabal (Gerenciador de projetos de haskell);
+- Instale o [Cabal](https://cabal.readthedocs.io/en/3.6/) (Gerenciador de projetos de haskell);
 
-- cabal install cabal-install
-
-- (Para checar, utilize o comando cabal --version
+- (Para checar, utilize o comando cabal --version)
