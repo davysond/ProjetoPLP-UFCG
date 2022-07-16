@@ -495,7 +495,7 @@ realizarEmprestimo cpf = do
   valor <- getLine
   putStr "# Insira o número de parcelas que deseja pagar: "
   numeroDeParcelas <- getLine
-  let juros = "1,40 % a.m"
+  let juros = "1.4"
   let dataDeHojeFormatada = "15/07/2022" -- só parar ter uma base
   let dataVencimentoFormatada = "15/07/2023" -- só parar ter uma base
   let valorTotal = show ((read valor :: Double) + (read valor :: Double) * (read juros :: Double))
@@ -550,7 +550,7 @@ realizarInvestimento cpf = do
   putStr "Selecione uma opção de investimento: "
   tInvest <- getLine
   let tInvestimento = tInvest
-  let op1 = read tInvest
+  let op1 = read tInvestimento
   let rentabilidade = verificaDigito(op1)
   let valorRetornado = (read valor :: Double) * rentabilidade
 
@@ -628,7 +628,7 @@ imprimeInvestimentosCadastrados (x : xs) n = do
   putStrLn ("\nInvestimento: " ++ show n ++ ":" ++ "\n" )
   putStrLn ("Nome: " ++ (nomeInvestimento x) ++ "\n")
   putStrLn ("CPF: " ++ (cpfInvestimento x) ++ "\n")
-  putStrLn ("Valor a investir: " ++ (valorInvestimento x) ++ "\n")
+  putStrLn ("Valor a investir: " ++ (show(valorInvestimento x)) ++ "\n")
   putStrLn ("Tipo de investimento: " ++ (tipoDeInvestimento x) ++ "\n")
   putStrLn ("Valor retornado: " ++ (show (valorRetornado x)) ++ "\n")
   printLine
