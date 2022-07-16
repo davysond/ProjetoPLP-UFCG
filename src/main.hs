@@ -630,7 +630,7 @@ imprimeInvestimentosCadastrados (x : xs) n = do
   putStrLn ("CPF: " ++ (cpfInvestimento x) ++ "\n")
   putStrLn ("Valor a investir: " ++ (valorInvestimento x) ++ "\n")
   putStrLn ("Tipo de investimento: " ++ (tipoDeInvestimento x) ++ "\n")
-  putStrLn ("Valor retornado: " ++ (valorRetornado x) ++ "\n")
+  putStrLn ("Valor retornado: " ++ (show (valorRetornado x)) ++ "\n")
   printLine
   imprimeInvestimentosCadastrados xs (n + 1)
 
@@ -647,8 +647,6 @@ acharCliente (c : cs) cpf
 encontrarClienteASerRemovido :: Cliente -> String -> Bool
 encontrarClienteASerRemovido cliente cpf = do
   obterCpf cliente == cpf 
-
-  
 
 obterCliente :: Cliente -> String -> String
 obterCliente Cliente {nomeCliente = n, cpf = e, senha = s, telefone = t, saldo = sa} prop
