@@ -19,3 +19,5 @@
 - Instale o [Cabal](https://cabal.readthedocs.io/en/3.6/), gerenciador de projetos da linguagem.
 
 - (Para checar as versões instaladas, utilize os comandos "ghci --version" e "cabal --version", respectivamente).
+
+- Para inicializar o projeto, utilize o comando: ":l main.hs", posteriormente rodando o "main" principal.
