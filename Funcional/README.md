@@ -1,4 +1,4 @@
-# Projeto - PLP:
+# Projeto - PLP (Funcional):
  Projeto para a cadeira de Paradigmas de Linguagens de Programação, UFCG.
 
 # Autores:
