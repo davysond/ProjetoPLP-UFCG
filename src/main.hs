@@ -5,7 +5,6 @@
 
 import Data.Char (isDigit, toLower)
 import System.Directory (doesFileExist, removeFile)
-import System.Random
 import System.IO
   ( IO,
     IOMode (ReadMode, ReadWriteMode, WriteMode, AppendMode),
@@ -55,6 +54,7 @@ data Investimento = Investimento {
     cpfInvestimento :: String,
     valorInvestimento :: String,
     tipoDeInvestimento :: String,
+    rentabilidadeInvestimento :: String,
     valorRetornado :: String,
     statusInvestimento :: String
   } deriving (Read, Show)
@@ -209,7 +209,6 @@ verClientesCadastrados = do
     putStrLn "\n# Não há clientes cadastrados!"
   menuGerente
 
-
 removerCliente :: IO ()
 removerCliente = do
   clientesCadastrados <- doesFileExist "clientes.txt"
@@ -249,7 +248,6 @@ atualizaClientes (x : xs) = do
     else appendFile "clientes.txt" ("\n" ++ show x)
   atualizaClientes xs
 
-
 acessoGerente :: IO ()
 acessoGerente = do
   printLine
@@ -275,8 +273,6 @@ acessoGerente = do
         then do
           acessoGerente
         else showMenu
-
-
 
 mudaContato :: IO ()
 mudaContato = do
@@ -480,7 +476,32 @@ depositarEmprestimo cpf valor = do
             saldo = show novoSaldo
           }
   atualizaClientes (novaListaDeClientes ++ [clienteEditado])
-  putStrLn "# Depósito do emprestimo realizado com sucesso!"
+  putStrLn "# Depósito do empréstimo realizado com sucesso!"
+
+sacarInvestimento :: String -> String -> IO ()
+sacarInvestimento cpf valor = do
+  clientesContents <- readFile "clientes.txt"
+  let clientes = lines clientesContents
+
+  let dadosAntigosDoCliente = acharCliente [read x :: Cliente | x <- clientes] cpf
+  let saldoAntigo = obterSaldo dadosAntigosDoCliente
+  let novoSaldo = (read saldoAntigo :: Double) - (read valor :: Double) 
+  if novoSaldo >= 0
+    then do
+      removeFile "clientes.txt"
+      let novaListaDeClientes = [read x :: Cliente | x <- clientes, not (encontrarClienteASerRemovido (read x :: Cliente) cpf)]
+      let clienteEditado = Cliente{ nomeCliente = obterNomes dadosAntigosDoCliente,
+            cpf = obterCpf dadosAntigosDoCliente,
+            senha = obterSenha dadosAntigosDoCliente,
+            telefone = obterTelefone dadosAntigosDoCliente,
+            saldo = show novoSaldo
+          }
+      atualizaClientes (novaListaDeClientes ++ [clienteEditado])
+      putStrLn "# Saque do investimento realizado com sucesso!"
+      
+  else do
+    putStrLn "# Saldo insuficiente!"
+    segundoMenuCliente cpf
 
 realizarEmprestimo :: String -> IO ()
 realizarEmprestimo cpf = do
@@ -557,12 +578,13 @@ realizarInvestimento cpf = do
   let investimento = Investimento{
     nomeInvestimento = nome,
     cpfInvestimento = cpf,
-    valorInvestimento = show valor,
+    valorInvestimento = valor,
     tipoDeInvestimento = tInvestimento,
+    rentabilidadeInvestimento = show rentabilidade,
     valorRetornado = show valorRetornado,
     statusInvestimento = "Em andamento..."
   }
-
+  sacarInvestimento cpf valor
   investimentosCadastrados <- doesFileExist "investimentos.txt"
 
   if investimentosCadastrados
@@ -572,7 +594,7 @@ realizarInvestimento cpf = do
       putStrLn "# Investimento realizado com sucesso!"
       segundoMenuCliente cpf
     else do
-      file <- appendFile "investimentos.txt" ("\n" ++ show investimento)   
+      file <- appendFile "investimentos.txt" (show investimento)   
       segundoMenuCliente cpf
 
 imprimeEmprestimosCadastrados :: [Emprestimo] -> Int -> IO ()
@@ -625,11 +647,12 @@ imprimeInvestimentosCadastrados :: [Investimento] -> Int -> IO ()
 imprimeInvestimentosCadastrados [] 0 = putStrLn "\n# Nenhum investimento cadastrado!"
 imprimeInvestimentosCadastrados [] _ = putStrLn "\n# Investimentos listados com sucesso!"
 imprimeInvestimentosCadastrados (x : xs) n = do
-  putStrLn ("\nInvestimento: " ++ show n ++ ":" ++ "\n" )
-  putStrLn ("Nome: " ++ (nomeInvestimento x) ++ "\n")
+  putStrLn ("\nInvestimento: " ++ show n ++ ":" ++ "\n")
+  putStrLn ("Nome: " ++ (nomeInvestimento x ) ++ "\n")
   putStrLn ("CPF: " ++ (cpfInvestimento x) ++ "\n")
-  putStrLn ("Valor a investir: " ++ (show(valorInvestimento x)) ++ "\n")
+  putStrLn ("Valor a investir: " ++ (valorInvestimento x) ++ "\n")
   putStrLn ("Tipo de investimento: " ++ (tipoDeInvestimento x) ++ "\n")
+  putStrLn ("Rentabilidade: " ++ (rentabilidadeInvestimento x) ++ "%" ++ "\n")
   putStrLn ("Valor retornado: " ++ (show (valorRetornado x)) ++ "\n")
   printLine
   imprimeInvestimentosCadastrados xs (n + 1)
@@ -655,7 +678,6 @@ obterCliente Cliente {nomeCliente = n, cpf = e, senha = s, telefone = t, saldo =
   | prop == "senha" = s
   | prop == "telefone" = t
   | prop == "saldo" = sa
-
 
 obterGerente :: Gerente -> String -> String
 obterGerente Gerente {nomeGerente = n, senhaGerente = s, telefoneGerente = t} prop
@@ -720,11 +742,11 @@ obterStatus :: Emprestimo -> String
 obterStatus (Emprestimo _ _ _ _ _ _ _ status) = status
 
 verificaDigito :: Int -> Double
-verificaDigito n | n == 1 = 2.9
-                 | n == 2 = 3.95
-                 | n == 3 = 4.5
-                 | n == 4 = 4.39
-                 | n == 5 = 5.06
+verificaDigito n | n == 1 = 0.0299
+                 | n == 2 = 0.0395
+                 | n == 3 = 0.045
+                 | n == 4 = 0.0439
+                 | n == 5 = 0.0506
                  | otherwise = 1
 
 encontraCliente :: [Cliente] -> String -> String -> Bool
@@ -741,4 +763,3 @@ encontraCliente (c : cs) cpf senha
   | obterCliente c "cpf" /= cpf || obterCliente c "senha" /= senha = encontrar
   where
     encontrar = encontraCliente cs cpf senha
-
