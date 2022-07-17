@@ -516,9 +516,7 @@ realizarEmprestimo cpf = do
   valor <- getLine
   putStr "# Insira o número de parcelas que deseja pagar: "
   numeroDeParcelas <- getLine
-  let juros = "1.4"
-  let dataDeHojeFormatada = "15/07/2022" -- só parar ter uma base
-  let dataVencimentoFormatada = "15/07/2023" -- só parar ter uma base
+  let juros = "0.14"
   let valorTotal = show ((read valor :: Double) + (read valor :: Double) * (read juros :: Double))
   let valorParcela = show ((read valorTotal :: Double) / (read numeroDeParcelas :: Double))
   let totalParcelas = numeroDeParcelas
@@ -573,14 +571,14 @@ realizarInvestimento cpf = do
   let tInvestimento = tInvest
   let op1 = read tInvestimento
   let rentabilidade = verificaDigito(op1)
-  let valorRetornado = (read valor :: Double) * rentabilidade
+  let valorRetornado = (read valor :: Double) + ((read valor :: Double) * ((read rentabilidade :: Double)/100))
 
   let investimento = Investimento{
     nomeInvestimento = nome,
     cpfInvestimento = cpf,
     valorInvestimento = valor,
     tipoDeInvestimento = tInvestimento,
-    rentabilidadeInvestimento = show rentabilidade,
+    rentabilidadeInvestimento = show rentabilidade ,
     valorRetornado = show valorRetornado,
     statusInvestimento = "Em andamento..."
   }
@@ -741,13 +739,13 @@ obterValorTotal (Emprestimo _ _ _ _ _ _ valorTotal _) = valorTotal
 obterStatus :: Emprestimo -> String
 obterStatus (Emprestimo _ _ _ _ _ _ _ status) = status
 
-verificaDigito :: Int -> Double
-verificaDigito n | n == 1 = 0.0299
-                 | n == 2 = 0.0395
-                 | n == 3 = 0.045
-                 | n == 4 = 0.0439
-                 | n == 5 = 0.0506
-                 | otherwise = 1
+verificaDigito :: Int -> String
+verificaDigito n | n == 1 = "2.99"
+                 | n == 2 = "3.95"
+                 | n == 3 = "4.45"
+                 | n == 4 = "4.39"
+                 | n == 5 = "5.56"
+                 | otherwise = "1"
 
 encontraCliente :: [Cliente] -> String -> String -> Bool
 encontraCliente [] cpf senha = False
