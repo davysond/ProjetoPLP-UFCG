@@ -7,12 +7,12 @@
 - Paulo Victor Machado de Souza - 120110398;
 - Anderson de Lima Leite - 120110679.
 
-# Plataformas e Ferramentas utilizadas no desenvolvimento:
+# Plataformas/Ferramentas utilizadas no desenvolvimento:
 
 - Sistema: Linux;
 - Ferramentas: Sublime Text e Repl.it.
 
-# Recurso necessários para a utilização:
+# Recursos necessários para a utilização:
 
 - Instale o [GHCC](https://www.haskell.org/downloads/), gerenciador de pacotes do Haskell;
 
