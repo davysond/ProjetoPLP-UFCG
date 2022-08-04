@@ -1,0 +1,5 @@
+
+:- dynamic cliente/5.
+
+
+
