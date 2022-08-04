@@ -1,0 +1,2 @@
+
+:- dynamic investimento/8.
