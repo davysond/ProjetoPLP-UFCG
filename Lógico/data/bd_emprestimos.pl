@@ -1,3 +1,0 @@
-
-:- dynamic emprestimo/8.
-
