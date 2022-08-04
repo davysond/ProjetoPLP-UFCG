@@ -1,8 +1,26 @@
-## Como executar o programa em Prolog
-1. Clone o repositório na sua máquina e depois acesse o diretório do mesmo com os comandos dados a seguir:
-* `git clone https://github.com/AndersonLLeite/Projeto-PLP-SistemaBancario.git`
-* `cd Prolog`
+# Projeto - PLP (Lógico):
+ Projeto para a cadeira de Paradigmas de Linguagens de Programação, UFCG.
 
-2. Agora basta rodar o programa e então executar o main:
-* `swipl menu.pl`
-* `main.`
+# Autores:
+- Davyson Douglas Gomes Guimarães - 119210872;
+- José Artur Procopio Coelho - 120210625;
+- Paulo Victor Machado de Souza - 120110398;
+- Anderson de Lima Leite - 120110679.
+
+# Plataformas/Ferramentas utilizadas no desenvolvimento:
+
+- Sistemas: Linux e Windows;
+- Ferramentas: Sublime Text, SWI Prolog Editor e CMD.
+
+# Recursos necessários para a utilização:
+
+- Instale o [SWI](https://www.swi-prolog.org/Download.html), gerenciador de pacotes do Prolog;
+
+- (Para checar a versão instalada, utilize o comando `swipl --version`).
+
+# Como executar o projeto:
+
+- Clone o repositório: `git clone https://github.com/davysond/Projeto-PLP.git`;
+- Utilize o comando `cd Lógico` para acessar a pasta específica do projeto lógico;
+- Insira `swipl menu.pl` para acessar o arquivo principal do sistema;
+- Por último, digite `main.` para ser redirecionado ao menu.
