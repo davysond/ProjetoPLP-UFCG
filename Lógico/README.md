@@ -16,7 +16,7 @@
 
 - Instale o [SWI](https://www.swi-prolog.org/Download.html), gerenciador de pacotes do Prolog.
 
-- (Para checar a versão instaladas, utilize o comando `swipl --version`.)
+- (Para checar a versão instalada, utilize o comando `swipl --version`.)
 
 # Como executar o Projeto Lógico:
 
@@ -26,4 +26,4 @@
 
 - Execute o arquivo principal atráves do comando: `swipl menu.pl`;
 
-- Inicie a função principal do menu: `main.`. 
+- Inicie a função do menu: `main.`. 
