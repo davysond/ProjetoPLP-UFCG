@@ -6,6 +6,7 @@
 - José Artur Procopio Coelho - 120210625;
 - Paulo Victor Machado de Souza - 120110398;
 - Anderson de Lima Leite - 120110679.
+- Juan Gabriel Gonçalves Dias - 120110731.
 
 # Plataformas/Ferramentas utilizadas no desenvolvimento:
 
