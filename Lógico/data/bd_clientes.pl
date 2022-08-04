@@ -2,4 +2,3 @@
 :- dynamic cliente/5.
 
 
-

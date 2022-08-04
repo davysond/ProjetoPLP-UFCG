@@ -225,12 +225,10 @@ editar_contato_gerente :-
     read_line_to_string(user_input, Contato), nl, 
     retract(gerente(Cpf, Senha, _)),
     assert(gerente(Cpf,Senha,Contato)), 
-    tell('./data/bd_adm.pl'), nl,
+    tell('./data/bd_gerente.pl'), nl,
     listing(gerente/3),
     told, 
     writeln("Contato atualizado com sucesso."),
     writeln("Pressione qualquer tecla para retornar ao menu..."),
-    read_line_to_string(user_input, _),
-  writeln("Senha incorreta."), nl, false).
-  
-
+    read_line_to_string(user_input, _);
+  writeln("Senha incorreta."), nl, halt).
