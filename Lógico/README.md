@@ -20,7 +20,7 @@
 
 # Como executar o projeto:
 
-- Clone o repositório: `git clone https://github.com/davysond/Projeto-PLP`;
+- Clone o repositório: `git clone https://github.com/davysond/Projeto-PLP.git`;
 - Utilize o comando `cd Lógico` para acessar a pasta específica do projeto lógico;
 - Insira `swipl menu.pl` para acessar o arquivo principal do sistema;
 - Por último, digite `main.` para ser redirecionado ao menu.
