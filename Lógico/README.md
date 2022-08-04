@@ -26,4 +26,4 @@
 
 - Execute o arquivo principal atráves do comando: `swipl menu.pl`;
 
-- Inicie a função principal do menu: `main`. 
+- Inicie a função principal do menu: `main.`. 
