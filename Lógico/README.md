@@ -16,11 +16,11 @@
 
 - Instale o [SWI](https://www.swi-prolog.org/Download.html), gerenciador de pacotes do Prolog.
 
-- (Para checar a versão instaladas, utilize o comandos `swipl --version`.)
+- (Para checar a versão instaladas, utilize o comando `swipl --version`.)
 
 # Como executar o Projeto Lógico:
 
-- Clone o repositório próprio do projeto através de um administrador Git (ou CMD, caso possua o gerenciador instalado): `git clone https://github.com/davysond/Projeto-PLP.git`;
+- Clone o repositório próprio do projeto através de um administrador GIT (ou CMD, caso possua o gerenciador instalado): `git clone https://github.com/davysond/Projeto-PLP.git`;
 
 - Altere para o repositório lógico: `cd Lógico`;
 
