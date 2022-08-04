@@ -10,10 +10,17 @@
 # Plataformas/Ferramentas utilizadas no desenvolvimento:
 
 - Sistemas: Linux e Windows;
-- Ferramentas: Sublime Text, SWI Prolog Editor e CMD;
+- Ferramentas: Sublime Text, SWI Prolog Editor e CMD.
 
 # Recursos necessários para a utilização:
 
 - Instale o [SWI](https://www.swi-prolog.org/Download.html), gerenciador de pacotes do Prolog;
 
 - (Para checar a versão instalada, utilize o comando `swipl --version`).
+
+# Como executar o projeto:
+
+- Clone o repositório: `git clone https://github.com/davysond/Projeto-PLP`;
+- Utilize o comando `cd Lógico` para acessar a pasta específica do projeto lógico;
+- Insira `swipl menu.pl` para acessar o arquivo principal do sistema;
+- Por último, digite `main.` para ser redirecionado ao menu.
